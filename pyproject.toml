@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cfx-kernel"
+version = "0.1.0"
+description = "Local-first governed runtime primitives for traceable objects, provenance, policy gates, registries, and bounded autonomy."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Xenologo" }]
+license = { text = "All rights reserved" }
+keywords = ["governance", "provenance", "agents", "sqlite", "audit", "autonomy", "registry"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+cfx = "cfx_kernel.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

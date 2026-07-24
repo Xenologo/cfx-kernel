@@ -1,0 +1,13 @@
+{
+  "id": "DEMO.OBJECT.001",
+  "title": "Calibration anomaly candidate",
+  "kind": "quality-event",
+  "lifecycle_state": "draft",
+  "claim_level": "evidentiary",
+  "source": "instrument-A",
+  "review_required": true,
+  "evidence_refs": [],
+  "dependencies": [],
+  "tags": ["demo", "qa"],
+  "metadata": {"line": "L1", "severity": "medium"}
+}

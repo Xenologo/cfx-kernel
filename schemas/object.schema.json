@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xenologo.github.io/cfx-kernel/schemas/object.schema.json",
+  "title": "CFX Kernel Governed Object",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9._-]{1,126}[A-Z0-9]$"},
+    "title": {"type": "string", "minLength": 1},
+    "kind": {"type": "string", "default": "object"},
+    "lifecycle_state": {"enum": ["draft", "sealed", "evaluated", "verified", "registered", "approved", "quarantined", "rejected", "superseded", "archived"]},
+    "claim_level": {"enum": ["architectural", "formal", "evidentiary", "runtime", "simulation", "experimental", "speculative"]},
+    "source": {"type": "string"},
+    "review_required": {"type": "boolean"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "dependencies": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "metadata": {"type": "object"}
+  }
+}

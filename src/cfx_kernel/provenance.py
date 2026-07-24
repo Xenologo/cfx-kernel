@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from copy import deepcopy
 import hashlib
 import json
+from copy import deepcopy
 from typing import Any
 
 GENESIS_HASH = "0" * 64

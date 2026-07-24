@@ -1,4 +1,4 @@
-from cfx_kernel.provenance import GENESIS_HASH, seal_record, verify_seal_chain
+from cfx_kernel.provenance import seal_record, verify_seal_chain
 
 
 def test_hash_chain_detects_tampering():

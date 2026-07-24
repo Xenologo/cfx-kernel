@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://xenologo.github.io/cfx-kernel/schemas/object.schema.json",
+  "$id": "https://raw.githubusercontent.com/Xenologo/cfx-kernel/main/schemas/object.schema.json",
   "title": "CFX Kernel Governed Object",
   "type": "object",
   "additionalProperties": false,

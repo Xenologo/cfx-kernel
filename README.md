@@ -8,9 +8,9 @@ It gives you:
 
 - governed objects with explicit claim and lifecycle state;
 - a deterministic lifecycle with invalid-transition rejection;
-- evidence references and SHA-256 provenance seals;
+- evidence references and SHA-256 provenance seals that bind each event to the resulting object version;
 - an append-only SQLite registry with immutable versions;
-- optimistic concurrency so stale agents cannot silently overwrite newer state;
+- optimistic concurrency plus explicit SQLite write transactions so stale or interrupted writers cannot leave torn mutations;
 - a tamper-evident global event chain;
 - default-safe policy gates for publishing, merging, deletion, external messaging, approval, and spending;
 - a bounded autonomic controller that may observe, diagnose, propose, and package work for review—but does not silently approve its own output;
@@ -74,6 +74,10 @@ draft -> sealed -> evaluated -> verified -> registered -> approved
 
 The lifecycle exists in executable code, not only documentation.
 
+## Claim ceilings
+
+`claim_level` is executable policy, not decorative metadata. Evidentiary claims need evidence before `evaluated`; runtime and simulation claims need evidence before `verified`; experimental claims need one reference before `evaluated` and two before `verified`; speculative claims are capped at `sealed`. Dependencies must resolve before promotion to `evaluated` or beyond.
+
 ## Package map
 
 ```text
@@ -96,7 +100,7 @@ See [Architecture](docs/ARCHITECTURE.md) and [Distillation map](docs/MIGRATION_F
 
 ## Status
 
-`0.1.0` — compact reference implementation. The target is a small, auditable trusted computing base rather than feature proliferation.
+`0.1.1` — integrity-hardening release. The target is a small, auditable trusted computing base rather than feature proliferation.
 
 ## License
 
